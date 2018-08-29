@@ -6,6 +6,7 @@ import Notification from './../Notification';
 import Profile from './../Profile';
 import Settings from './../Settings';
 import Menu from './../Menu';
+import Main from './../Menu/index0.js';
 import Contact from './../Contact'
 import {DrawerNavigator,DrawerItems} from 'react-navigation'
 
@@ -18,6 +19,8 @@ render() {
 
 const CustomDrawer=(props)=>(
   <View style={{backgroundColor:'#00a8ff',flex:1,flexDirection:'column'}}>
+
+
     <View style={{flex:2,height:200,backgroundColor:'#00a8ff',alignItems:'center',justifyContent:'center',borderBottomWidth:0.5,borderBottomColor:'grey'}}>
           <Item searchBar rounded style={{height:45,width:'90%',marginBottom:15,
             marginLeft:10,marginRight:10,marginTop:20,backgroundColor:'#0984e3',
@@ -32,12 +35,15 @@ const CustomDrawer=(props)=>(
          </View>
     </View>
 
+
     <View style={{flex:3,textColor:'white',borderBottomWidth:0.5,borderBottomColor:'grey',}}>
       <DrawerItems activeTintColor='white'
         activeBackgroundColor='rgba(223, 230, 233,0.3)'
         inactiveTintColor='white'
          {...props} />
     </View>
+
+
     <View style={{alignItems:'flex-start',justifyContent:'center',height:70}}>
         <Button iconLeft transparent primary style={{marginLeft:5}}>
           <Icon name='wine' style={{color:'#636e72'}}/>
@@ -45,13 +51,14 @@ const CustomDrawer=(props)=>(
         </Button>
     </View>
 
+
   </View>
 )
 
 
 const HomeDrawer=DrawerNavigator({
   menu:{
-    screen:Menu,
+    screen:Main,
   },
   profile:{
     screen:Profile
@@ -68,7 +75,7 @@ const HomeDrawer=DrawerNavigator({
     screen:Settings
   }
 },{
-  initialRouteName:'menu',
+  initialRouteName:'Message',
   contentComponent:CustomDrawer,
   drawerOpenRoute:'DraweOpen',
   drawerCloseRoute:'DraweClose',

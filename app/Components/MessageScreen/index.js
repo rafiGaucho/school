@@ -13,10 +13,15 @@ export default class MessageScreen extends React.Component {
     drawerIcon:(<Icon name='chatboxes'  style={{color:'#636e72'}}/>),
 
   }
+
+  handleBackButton=()=>{
+    this.props.navigation.navigate('menu')
+  }
+
   render() {
     return(
       // <View style={{flex:1,alignItems:'center',justifyContent:'center'}}><Text>Message</Text></View>
-      <MessageScreenContainer />
+      <MessageScreenContainer func={this.handleBackButton}/>
     );
   }
 }

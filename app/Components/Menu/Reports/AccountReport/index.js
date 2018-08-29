@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React, {PropTypes} from 'react';
 import {
   View,
-  StyleSheet,Text,Image
+  StyleSheet,Text
 } from 'react-native';
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
 import {createMaterialTopTabNavigator} from 'react-navigation'
-import MessageContainer from './Message'
-import VoiceContainer from './Voice'
-import ChatContainer from './Chat'
+import Details from './Details';
+import Payments from './Payments';
 
-export default class MessageScreenContainer extends React.Component {
-
-
-
+export default class AccountReport extends React.Component {
+  static navigationOptions={
+    header:null
+  }
+  goback=()=>{
+    this.props.navigation.goBack()
+  }
   render() {
     return (
       <View style={{flex:1}}>
@@ -21,9 +23,9 @@ export default class MessageScreenContainer extends React.Component {
         <View style={{flex:1.5,backgroundColor:'#3B3B98',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
           <View style={{flexDirection:'row',alignItems:'center'}}>
             <View>
-              <Button transparent onPress={this.props.func} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
+              <Button transparent onPress={this.goback} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
             </View>
-            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>MESSAGE</Text>
+            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>Accounts</Text>
           </View>
           <View>
             <Button transparent  style={{marginTop:10,}}><Icon name='search' style={{color:'white',fontSize:32}}/></Button>
@@ -31,21 +33,20 @@ export default class MessageScreenContainer extends React.Component {
         </View>
 
 
-        <View style={{flex:12.25,backgroundColor:'#575fcf'}}>
+        <View style={{flex:12}}>
           <Tabs />
         </View>
 
 
-        <View style={{flex:0.75,backgroundColor:'#575fcf'}}></View>
+        <View style={{flex:0.75,backgroundColor:'#575fcf'}}>
+        </View>
 
 
       </View>
     );
   }
 }
-
 const Tabs=createMaterialTopTabNavigator({
-  Message:MessageContainer,
-  Voice:VoiceContainer,
-  Chat:ChatContainer
+Details:Details,
+Payments:Payments
 })

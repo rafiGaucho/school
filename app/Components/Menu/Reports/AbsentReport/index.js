@@ -12,9 +12,8 @@ export default class AbsentReport extends React.Component {
   static navigationOptions={
     header:null
   }
-  goback=()=>{
-    this.props.navigation.goBack()
-  }
+  goback=()=>{this.props.navigation.goBack()}
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -25,7 +24,7 @@ export default class AbsentReport extends React.Component {
             <View>
               <Button transparent onPress={this.goback} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
             </View>
-            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>Absent</Text>
+            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>ABSENT </Text>
           </View>
           <View>
             <Button transparent  style={{marginTop:10,}}><Icon name='search' style={{color:'white',fontSize:32}}/></Button>

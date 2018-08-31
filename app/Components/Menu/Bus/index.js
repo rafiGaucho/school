@@ -6,11 +6,11 @@ import {
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
 
 
-export default class LibraryReport extends React.Component {
+export default class Bus extends React.Component {
   static navigationOptions={
     header:null
   }
-  goback=()=>{this.props.navigation.goBack()}
+  goback=()=>{this.props.navigation.popToTop()}
 
   render() {
     return (
@@ -21,7 +21,7 @@ export default class LibraryReport extends React.Component {
             <View>
               <Button transparent onPress={this.goback} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
             </View>
-            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>LIBRARY REPORT </Text>
+            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>BUS</Text>
           </View>
           <View>
             <Button transparent  style={{marginTop:10,}}><Icon name='search' style={{color:'white',fontSize:32}}/></Button>
@@ -30,7 +30,7 @@ export default class LibraryReport extends React.Component {
 
 
         <View style={{flex:12,alignItems:'center',justifyContent:'center'}}>
-          <Text>LibraryReport</Text>
+          <Text>Bus</Text>
         </View>
 
         <View style={{flex:0.75,backgroundColor:'#575fcf'}}>

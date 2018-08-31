@@ -15,7 +15,12 @@ export default  class Reports extends React.Component {
   goback=()=>{this.props.navigation.popToTop()}
   goAccount=()=>{this.props.navigation.navigate('AccountReport')}
   goAbsent=()=>{ this.props.navigation.navigate('AbsentReport')}
+  goAcademic=()=>{ this.props.navigation.navigate('AcademicReport')}
+  goInventory=()=>{ this.props.navigation.navigate('InventoryReport')}
+  goLibrary=()=>{ this.props.navigation.navigate('LibraryReport')}
   goMessage=()=>{ this.props.navigation.navigate('MessageReport')}
+  goStaffLeave=()=>{ this.props.navigation.navigate('StaffLeaveReport')}
+
 
   render() {
     return (
@@ -37,10 +42,10 @@ export default  class Reports extends React.Component {
         <Items iconName='account-card-details' iconType='MaterialCommunityIcons' heading='Account Report' bgColor='#3498db' function={this.goAccount}/>
         <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Message Report' bgColor='#2ecc71' function={this.goMessage}/>
         <Items iconName='account-card-details' iconType='MaterialCommunityIcons' heading='Absent Report' bgColor='#e74c3c' function={this.goAbsent}/>
-        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Staff Leave Report' bgColor='#f39c12' />
-        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Library Report' bgColor='#e056fd'/>
-        <Items iconName='account-card-details' iconType='MaterialCommunityIcons' heading='Academic Report' bgColor='#00cec9'/>
-        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Inventory Report' bgColor='#ff7675'/>
+        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Staff Leave Report' bgColor='#f39c12' function={this.goStaffLeave}/>
+        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Library Report' bgColor='#e056fd' function={this.goLibrary}/>
+        <Items iconName='account-card-details' iconType='MaterialCommunityIcons' heading='Academic Report' bgColor='#00cec9' function={this.goAcademic}/>
+        <Items iconName='envelope-open' iconType='SimpleLineIcons' heading='Inventory Report' bgColor='#ff7675' function={this.goInventory}/>
       </View>
 
 
@@ -52,6 +57,8 @@ export default  class Reports extends React.Component {
     );
   }
 }
+
+
 const Items=(props)=>{
   return(
     <TouchableOpacity style={{flex:1}} onPress={props.function}>

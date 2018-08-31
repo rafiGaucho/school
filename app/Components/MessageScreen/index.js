@@ -14,9 +14,8 @@ export default class MessageScreen extends React.Component {
 
   }
 
-  handleBackButton=()=>{
-    this.props.navigation.navigate('menu')
-  }
+  handleBackButton=()=>{this.props.navigation.goBack(null)}
+
 
   render() {
     return(

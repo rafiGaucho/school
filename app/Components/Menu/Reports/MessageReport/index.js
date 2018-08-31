@@ -6,6 +6,7 @@ import {
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
 import Recharge from './recharge.js';
 import Hr from "react-native-hr-component";
+import Pie from './graph.js'
 
 
 export default class MessageReport extends React.Component {
@@ -60,7 +61,7 @@ export default class MessageReport extends React.Component {
             <View>
               <Button transparent onPress={this.goback} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
             </View>
-            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>Message Report</Text>
+            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>MESSAGE REPORT</Text>
           </View>
           <View>
             <Button transparent  style={{marginTop:10,}}><Icon name='search' style={{color:'white',fontSize:32}}/></Button>
@@ -171,8 +172,8 @@ const MessageData=()=>{
         </Text>
       </View>
       {/* <Hr lineColor="grey" textPadding={0.001} hrStyles={{width:'88%',marginHorizontal:'6%'}}/> */}
-      <View style={{flex:3.5,flexDirection:'row'}}>
-        <View >
+      <View style={{flex:3.5,flexDirection:'row',justifyContent:'space-between'}}>
+        <View style={{flex:1}}>
           <View style={{flex:0.3}}></View>
           <View style={{flexDirection:'row',flex:1}}>
             <View style={{marginLeft:'7%',height:17,width:17,borderRadius:8.5,backgroundColor:'#bdc3c7'}}></View>
@@ -196,8 +197,9 @@ const MessageData=()=>{
           </View>
           <View style={{flex:0.3}}></View>
         </View>
-        <View>
+        <View style={{flex:1}}>
           {/* place for graph */}
+          <Pie />
         </View>
       </View>
     </View>

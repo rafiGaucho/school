@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View,StyleSheet,Image} from 'react-native';
+import {View,StyleSheet,Image,TextInput,Dimensions} from 'react-native';
 import { Body, Content,Item,Input, Text, Icon,Button} from 'native-base';
 import MessageScreen from './../MessageScreen';
 import Notification from './../Notification';
@@ -17,18 +17,21 @@ render() {
 }
 
 
-const CustomDrawer=(props)=>(
+const CustomDrawer=(props)=>{
+  heightScreen= Dimensions.get('window').height;
+  return(
   <View style={{backgroundColor:'#00a8ff',flex:1,flexDirection:'column'}}>
 
 
-    <View style={{flex:2,height:200,backgroundColor:'#00a8ff',alignItems:'center',justifyContent:'center',borderBottomWidth:0.5,borderBottomColor:'grey'}}>
-          <Item searchBar rounded style={{height:45,width:'90%',marginBottom:15,
-            marginLeft:10,marginRight:10,marginTop:20,backgroundColor:'#0984e3',
-            borderColor:'#0984e3'}}>
-            <Icon active name='search' style={{marginLeft:3,color:'white'}} />
-            <Input placeholder='search' placeholderTextColor="white" />
-          </Item>
-          <View style={{}}  >
+    <View style={[{backgroundColor:'#00a8ff',alignItems:'center',justifyContent:'center',
+      borderBottomWidth:0.5,borderBottomColor:'grey'},{height:heightScreen/2.5}]}>
+          <View style={{width:'90%',height:'20%',borderRadius:30,backgroundColor:'#2980b9',position:'absolute',
+            top:'10%',bottom:0,left:20,right:0,
+            marginBottom:'5%',flexDirection:'row',alignItems:'center'}}>
+            <Icon name='search' type='EvilIcons' style={{color:'white',marginLeft:'5%',marginBottom:'3%'}}/>
+            <TextInput style={{marginBottom:'3%',width:'80%'}} placeholder='search' placeholderTextColor='white'/>
+          </View>
+          <View style={{height:'60%',marginTop:'40%'}}  >
            <Image style={{height:80,width:80,borderRadius:40,borderColor:'white',borderWidth:1}} source={require("./photo.png")} />
            <Text style={{fontSize:16,fontWeight:'bold',textAlign:'center',color:'white',marginTop:10}}>principal</Text>
            <Text style={{fontSize:10,textAlign:'center',color:'white',marginBottom:10}}>school Name</Text>
@@ -36,7 +39,7 @@ const CustomDrawer=(props)=>(
     </View>
 
 
-    <View style={{flex:3,textColor:'white',borderBottomWidth:0.5,borderBottomColor:'grey',}}>
+    <View style={[{textColor:'white',borderBottomWidth:0.5,borderBottomColor:'grey',},{height:heightScreen/2}]}>
       <DrawerItems activeTintColor='white'
         activeBackgroundColor='rgba(223, 230, 233,0.3)'
         inactiveTintColor='white'
@@ -44,7 +47,7 @@ const CustomDrawer=(props)=>(
     </View>
 
 
-    <View style={{alignItems:'flex-start',justifyContent:'center',height:70}}>
+    <View style={[{alignItems:'flex-start',justifyContent:'center',marginBottom:'3%'},{height:heightScreen/14.25}]}>
         <Button iconLeft transparent primary style={{marginLeft:5}}>
           <Icon name='wine' style={{color:'#636e72'}}/>
           <Text style={{color:'white',marginLeft:10}}>Log Out</Text>
@@ -54,7 +57,7 @@ const CustomDrawer=(props)=>(
 
   </View>
 )
-
+}
 
 const HomeDrawer=DrawerNavigator({
   menu:{
@@ -75,7 +78,7 @@ const HomeDrawer=DrawerNavigator({
     screen:Settings
   }
 },{
-  initialRouteName:'Message',
+  initialRouteName:'menu',
   contentComponent:CustomDrawer,
   drawerOpenRoute:'DraweOpen',
   drawerCloseRoute:'DraweClose',

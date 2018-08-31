@@ -25,7 +25,7 @@ export default class AccountReport extends React.Component {
             <View>
               <Button transparent onPress={this.goback} style={{marginTop:10,}}><Icon name='arrow-round-back' style={{color:'white'}}/></Button>
             </View>
-            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>Accounts</Text>
+            <Text style={{color:'white',fontSize:20,fontWeight:'600',paddingTop:7}}>ACCOUNTS</Text>
           </View>
           <View>
             <Button transparent  style={{marginTop:10,}}><Icon name='search' style={{color:'white',fontSize:32}}/></Button>

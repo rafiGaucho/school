@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {
-  View,ScrollView,
+  View,ScrollView,TouchableOpacity,
   StyleSheet,Text,Dimensions,TouchableWithoutFeedback
 } from 'react-native';
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
@@ -76,7 +76,7 @@ export default class MessageReport extends React.Component {
               <List isopen={this.state.isopen4} func={this.handlePress4} show=<MessageData />/>
               <List isopen={this.state.isopen5} func={this.handlePress5} show=<MessageData />/>
             </ScrollView>
-        </View>}
+          </View>}
 
 
         <View style={{flex:1.6,}}>
@@ -104,13 +104,15 @@ export default class MessageReport extends React.Component {
                 <Text style={{fontWeight:'600',marginLeft:'3%'}}>06</Text>
               </View>
             </View>
-            <View style={{flex:1}}>
-              <Button  rounded onPress={this.handleRecharge} style={{backgroundColor:'#6ab04c',height:'80%',width:'80%',marginLeft:'5%'}}>
-                <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}>
-                  <Text style={{fontWeight:'bold',color:'white',marginLeft:'20%',fontSize:13}}>Recharge</Text>
-                  <Icon name={!this.state.isRecharge ? 'chevron-up':'chevron-down' } type='Entypo' style={{color:'white',marginRight:'15%'}}/>
+            <View style={{flex:1,marginBottom:'1%'}}>
+              <TouchableOpacity onPress={this.handleRecharge}
+                disabled={this.state.dropMenu} style={{marginTop:'5%'}}>
+               <View style={[{alignItems:'center',justifyContent:'space-around',flexDirection:'row',backgroundColor:'#2ecc71'},
+                 {height:heightScreen*(1.5/26),width:heightScreen*(3.5/26),borderRadius:heightScreen*(1.5/52)}]}>
+                  <Text style={{fontWeight:'bold',color:'white',fontSize:10,marginLeft:'5%'}}>Recharge</Text>
+                  <Icon name={!this.state.isRecharge ? 'chevron-up':'chevron-down' } type='Entypo' style={{color:'white',fontSize:14}}/>
                 </View>
-              </Button>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -134,7 +136,7 @@ const List=(props)=>{
   return(
   <View >
     <TouchableWithoutFeedback onPress={props.func}>
-      <View>
+      <View style={{flex:1}}>
         <View style={[{height:heightScreen/8.5},{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}]}>
         <View style={{marginLeft:'6%',flexDirection:'row',alignItems:'center',}}>
           <View style={[{height:45,width:45,borderRadius:22.5,alignItems:'center',justifyContent:'center',backgroundColor:'#c8d6e5'},
@@ -153,7 +155,7 @@ const List=(props)=>{
         <Hr lineColor="#eee" textPadding={0.001} hrStyles={{width:'88%',marginHorizontal:'6%'}}/>
       </View>
     </TouchableWithoutFeedback>
-    {props.isopen  && <View style={[{height:this.heightScreen/4},
+    {props.isopen  && <View style={[{height:this.heightScreen/3.5},
       {backgroundColor:'#ecf0f1',width:'90%',marginHorizontal:'5%',borderRadius:8}]}>
       {props.show }
     </View>}
@@ -165,8 +167,8 @@ const List=(props)=>{
 const MessageData=()=>{
   return(
     <View style={{flex:1}}>
-      <View style={{flex:1.5,marginLeft:'5%',marginTop:'3%'}}>
-        <Text style={{fontSize:12}}>
+      <View style={{flex:1.6,marginLeft:'5%',marginTop:'3%'}}>
+        <Text style={{fontSize:10}}>
           PTA meeting is on 02/02/2018 at 10.30am @ seminar hall.you are requested to attend the
           same without fail.principal Appscook school of Management
         </Text>

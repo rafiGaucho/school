@@ -6,7 +6,7 @@ import {
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
 import CheckBox from 'react-native-check-box'
 
-export default class DropMenu extends React.Component {
+export default class DropMenuVoice extends React.Component {
 constructor(props) {
   super(props);
   this.state={
@@ -64,8 +64,8 @@ constructor(props) {
 
     return (
       <Card style={{height:'70%',width:'85%',position:'absolute',
-         backgroundColor:'white',flex:1
-        ,marginLeft:'10.3%',marginTop:'10%',borderBottomWidth:1,}}>
+         backgroundColor:'white',flex:1,top:0
+        ,left:'5%',borderBottomWidth:1,}}>
        <View style={{flexDirection:'row',flex:1,
         }}>
           <CheckBox   checkBoxColor='blue'

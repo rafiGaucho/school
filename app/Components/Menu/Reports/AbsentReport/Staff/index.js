@@ -8,7 +8,7 @@ import Hr from "react-native-hr-component";
 
 
 export default class Staff extends React.Component {
-  
+
 
   render() {
     return (
@@ -19,16 +19,16 @@ export default class Staff extends React.Component {
         </View>
 
         <View style={{flex:1,backgroundColor:'#c8d6e5',flexDirection:'row'}}>
-          <View style={{flex:2.9,alignItems:'center',borderRightWidth:0.3}}>
-            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:11}}>Teaching Staff Leave</Text></View>
+          <View style={{flex:3,alignItems:'center',borderRightWidth:0.5}}>
+            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:10}}>Teaching Staff Leave</Text></View>
             <View style={{flex:1,paddingBottom:5}}><Text style={{fontWeight:'600'}}>26</Text></View>
           </View>
-          <View style={{flex:3.7,alignItems:'center',borderRightWidth:0.3}}>
-            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:11}}>Non-Teaching Staff Leave</Text></View>
+          <View style={{flex:3.7,alignItems:'center',borderRightWidth:0.5}}>
+            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:10}}>Non-Teaching Staff Leave</Text></View>
             <View style={{flex:1,paddingBottom:5}}><Text style={{fontWeight:'600'}}>26</Text></View>
           </View>
-          <View style={{flex:2.4,alignItems:'center'}}>
-            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:11}}>Total Leave</Text></View>
+          <View style={{flex:2.3,alignItems:'center'}}>
+            <View style={{flex:1}}><Text style={{fontWeight:'400',fontSize:10}}>Total Leave</Text></View>
             <View style={{flex:1,paddingBottom:5}}><Text style={{fontWeight:'600'}}>26</Text></View>
           </View>
         </View>

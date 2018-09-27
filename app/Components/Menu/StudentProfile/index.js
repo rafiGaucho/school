@@ -42,12 +42,11 @@ handleBackButton=()=>{
             alignItems:'center',justifyContent:'center'}} >
             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
               <View style={{marginRight:'10%',margin:'1%'}}><CircleCall /></View>
-              <View style={{alignItems:'center'}}>
-                <Image style={{height:100,width:100,borderRadius:50,
-                    marginTop:'40%',borderColor:'white',borderWidth:3}}
+              <View style={{alignItems:'center',justifyContent:'space-around'}}>
+                <Image style={{height:100,width:100,borderRadius:50,borderColor:'white',borderWidth:3}}
                    source={require("./studen5.jpg")} />
-                <View >
-                  <Text style={{fontSize:18,fontWeight:'600',color:'black',}}>Neha Rose Jayan</Text>
+                <View style={{flex:1,marginBottom:'3%'}} >
+                  <Text style={{fontSize:16,fontWeight:'600',color:'black',}}>Neha Rose Jayan</Text>
                   <Text syle={{fontSize:10,fontWeight:'400',}}>Class IV - Division</Text>
                 </View>
               </View>

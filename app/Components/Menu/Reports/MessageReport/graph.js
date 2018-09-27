@@ -82,9 +82,9 @@ class Pie extends React.Component {
 
 
     var arc = d3.shape.arc()
-      .outerRadius(45)
+      .outerRadius(40)
       .padAngle(0)
-      .innerRadius(37);
+      .innerRadius(32);
 
     var path= arc(arcs[index]);
 
@@ -102,7 +102,8 @@ class Pie extends React.Component {
         <View style={{position:'absolute',top:'35%',left:'35%',right:'35%',bottom:'35%',
           alignItems:'center',justifyContent:'center'}}>
           <Text style={{fontSize:8}}>Message</Text>
-          <Text style={{fontSize:8}}>Details Graph</Text>
+          <Text style={{fontSize:8}}>Details </Text>
+          <Text style={{fontSize:8}}>Graph</Text>
         </View>
         <Surface width={100} height={100} >
            <Group x={51} y={51}>

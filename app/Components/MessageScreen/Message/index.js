@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,TouchableWithoutFeedback,TouchableOpacity,
-  StyleSheet,TextInput ,Text,
+  StyleSheet,TextInput ,Text,Dimensions
 } from 'react-native';
 import { Body, Content,Card,Item,Input, Icon,Button,Radio} from 'native-base';
 import PopupDialog,{slideAnimation} from 'react-native-popup-dialog';
@@ -10,6 +10,7 @@ import Hr from "react-native-hr-component";
 
 
 export default class MessageContainer extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state={
@@ -25,16 +26,22 @@ export default class MessageContainer extends React.Component {
   handleApp=()=>{this.setState({isApp:!this.state.isApp,isSmsApp:false})}
 
   render() {
+    heightScreen= Dimensions.get('window').height;
+
     return (
       <View style={{backgroundColor:'#d2dae2',flex:1,}}>
-                  <PopupDialog
-                      ref={(popupDialog) => { this.popupDialog = popupDialog; }}
-                  //   dialogAnimation={slideAnimation}
-                     height={0.4} width={0.6} containerStyle={{paddingBottom:'40%'}} dialogStyle={{}} >
-                     <View style={{flex:1,borderRadius:7}}>
-                       <MessagePopUp isSmsApp={this.state.isSmsApp} isApp={this.state.isApp} selectSmsApp={this.handleSmsApp} selectApp={this.handleApp}/>
-                     </View>
-                  </PopupDialog>
+
+
+        <PopupDialog
+            ref={(popupDialog) => { this.popupDialog = popupDialog; }}
+        //   dialogAnimation={slideAnimation}
+           height={0.4} width={0.6} containerStyle={{paddingBottom:'40%'}} dialogStyle={{}} >
+           <View style={{flex:1,borderRadius:7}}>
+             <MessagePopUp isSmsApp={this.state.isSmsApp} isApp={this.state.isApp} selectSmsApp={this.handleSmsApp} selectApp={this.handleApp}/>
+           </View>
+        </PopupDialog>
+
+
         <View style={{flex:0.75}}>
           <Item style={{backgroundColor:'#a5b1c2'}}>
             <Icon disable name='radio-button-off' style={{marginLeft:6}}/>
@@ -54,20 +61,22 @@ export default class MessageContainer extends React.Component {
         </View>
 
         <View style={{flex:10,}}>
-          <Card style={{height:'60%',marginLeft:20,marginRight:20,marginTop:50,borderRadius:5}}>
+          <View style={{height:'60%',marginLeft:20,marginRight:20,marginTop:50,borderRadius:5,backgroundColor:'white'}}>
             <TextInput placeholder='Type your message' maxLength={148} value={this.state.value}
               onChangeText={this.handleTextChange}
               multiline={true} style={{fontSize:18}} editable={!this.state.dropMenu}/>
-          </Card>
-          <View style={{flexDirection:'row',}}>
-            <Text style={{marginLeft:10,marginTop:25,}}>Message Character {148-this.state.value.length}/SMS 001</Text>
-            <Button iconRight rounded onPress={this.handlePopUP}
-              disabled={this.state.dropMenu}
-               style={{width:'30%',marginLeft:10,marginRight:10,marginTop:10}}>
-              <Text style={{marginLeft:25,fontSize:18,color:'white'}}>send</Text>
-              <Icon name='send' style={{color:'white',paddingRight:10}}/>
-            </Button>
+          </View>
 
+          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}>
+            <Text style={{marginTop:'5%'}}>Message Character {148-this.state.value.length}/SMS 001</Text>
+            <TouchableOpacity onPress={this.handlePopUP}
+              disabled={this.state.dropMenu} style={{marginTop:'5%'}}>
+             <View style={[{alignItems:'center',justifyContent:'space-around',flexDirection:'row',backgroundColor:'#3498db'},
+               {height:heightScreen*(1.5/26),width:heightScreen*(3.5/26),borderRadius:heightScreen*(1.5/52)}]}>
+               <Text style={{fontSize:14,color:'white'}}>send</Text>
+               <Icon name='send' style={{color:'white',fontSize:16}}/>
+             </View>
+           </TouchableOpacity>
           </View>
         </View>
         {this.state.dropMenu && <DropMenu />}

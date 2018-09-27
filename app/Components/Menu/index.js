@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  Text,Image,View,TouchableOpacity
+  Text,Image,View,TouchableOpacity,Dimensions
 } from 'react-native';
 import { Body, Content,Card,Item,Input, Icon,Button} from 'native-base';
 import {Circle} from './circle.js';
@@ -27,11 +27,15 @@ handleProfile=()=>{this.props.navigation.navigate('profile')}
 
 
   render() {
+    heightScreen= Dimensions.get('window').height/26;
+    // widthScreen=Dimensions.get('window').height
+
     return (
           <View style={{flex:1,}}>
 
 
-            <View style={{flex:1.5,backgroundColor:'#3B3B98',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+            <View style={[{backgroundColor:'#3B3B98',flexDirection:'row',alignItems:'center',justifyContent:'space-between'},
+            {height:heightScreen*2.6}]}>
               <View style={{flexDirection:'row',alignItems:'center'}}>
                 <View>
                   <Button transparent onPress={this.openDrawer} style={{marginTop:10,}}><Icon name='menu' style={{color:'white'}}/></Button>
@@ -44,31 +48,34 @@ handleProfile=()=>{this.props.navigation.navigate('profile')}
             </View>
 
 
-            <View style={{flex:4}}>
-              <Image source={require('./schoolPic.jpg')} style={{height:'100%',width:'100%'}} />
+            <View style={[{},
+            {height:heightScreen*7.5}]}>
+              <Image source={require('./schoolPic.jpg')} style={[{height:heightScreen*7.5},{width:'100%'}]} />
             </View>
 
 
-            <View style={{flex:8,backgroundColor:'#3B3B98'}}>
-              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',paddingTop:20}}>
-                <View style={{paddingLeft:15}}><Circle name='md-grid' type='ionicon' func={this.handleTimeTable}/><Text style={{textAlign:'center',color:'white'}}>Time Table</Text></View>
-                <View><Circle name='ios-people' type='ionicon' func={this.handleStaff}/><Text style={{textAlign:'center',color:'white'}}>Staff</Text></View>
-                <View style={{paddingRight:15}}><Circle name='library' type='material-community' func={this.handleLibrary}/><Text style={{textAlign:'center',color:'white'}}>Library</Text></View>
+            <View style={[{backgroundColor:'#3B3B98',alignItems:'center',justifyContent:'space-between'},
+            {height:heightScreen*13.5}]}>
+              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',alignItems:'center'}}>
+                <View style={{flex:1,alignItems:'center',paddingLeft:10}}><Circle name='md-grid' type='ionicon' func={this.handleTimeTable}/><Text style={{color:'white'}}>Time Table</Text></View>
+                <View style={{flex:1,alignItems:'center'}}><Circle name='ios-people' type='ionicon' func={this.handleStaff}/><Text style={{color:'white'}}>Staff</Text></View>
+                <View style={{flex:1,alignItems:'center',paddingRight:10}}><Circle name='library' type='material-community' func={this.handleLibrary}/><Text style={{color:'white'}}>Library</Text></View>
               </View>
-              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',padding:10}}>
-                <View style={{paddingLeft:15}}><Circle name='human-child' type='material-community' func={this.handleStudentProfile}/><Text style={{textAlign:'center',color:'white'}}>student profile</Text></View>
-                <View><Circle name='user-unfollow' type='simple-line-icon' func={this.handleAbsent}/><Text style={{textAlign:'center',color:'white'}}>Absent</Text></View>
-                <View style={{paddingRight:15}}><Circle name='ios-paper' type='ionicon' func={this.handleReports}/><Text style={{textAlign:'center',color:'white'}}>Reports</Text></View>
+              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',alignItems:'center'}}>
+                <View style={{flex:1,alignItems:'center',paddingLeft:10}}><Circle name='human-child' type='material-community' func={this.handleStudentProfile}/><Text style={{color:'white'}}>student profile</Text></View>
+                <View style={{flex:1,alignItems:'center'}}><Circle name='user-unfollow' type='simple-line-icon' func={this.handleAbsent}/><Text style={{color:'white'}}>Absent</Text></View>
+                <View style={{flex:1,alignItems:'center',paddingRight:10}}><Circle name='ios-paper' type='ionicon' func={this.handleReports}/><Text style={{color:'white'}}>Reports</Text></View>
               </View>
-              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',padding:10}}>
-                <View style={{paddingLeft:15}}><Circle name='message' type='material' func={this.handleMessage}/><Text style={{textAlign:'center',color:'white'}}>Message</Text></View>
-                <View><Circle name='bus' type='font-awesome' func={this.handleBus}/><Text style={{textAlign:'center',color:'white'}}>Bus</Text></View>
-                <View style={{paddingRight:15}}><Circle name='user' type='font-awesome' func={this.handleProfile}/><Text style={{textAlign:'center',color:'white'}}>Profile</Text></View>
+              <View style={{flex:1,justifyContent:'space-around',flexDirection:'row',alignItems:'center'}}>
+                <View style={{flex:1,alignItems:'center',paddingLeft:10}}><Circle name='message' type='material' func={this.handleMessage}/><Text style={{color:'white'}}>Message</Text></View>
+                <View style={{flex:1,alignItems:'center'}}><Circle name='bus' type='font-awesome' func={this.handleBus}/><Text style={{color:'white'}}>Bus</Text></View>
+                <View style={{flex:1,alignItems:'center',paddingRight:10}}><Circle name='user' type='font-awesome' func={this.handleProfile}/><Text style={{color:'white'}}>Profile</Text></View>
               </View>
             </View>
 
 
-            <View style={{flex:0.75,backgroundColor:'#575fcf'}}>
+            <View style={[{backgroundColor:'#575fcf'},
+            {height:heightScreen*1.5}]}>
             </View>
 
 

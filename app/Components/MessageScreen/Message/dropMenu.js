@@ -10,11 +10,11 @@ export default class DropMenu extends React.Component {
 constructor(props) {
   super(props);
   this.state={
-    checkedHod:false,checkedTeach:false,checkedNteach:false,checkedPta:false,
-    checkedManag:false,checkedNss:false,checkedNcc:false,checkedTrust:false,
+    checkedHod:props.isAll,checkedTeach:props.isAll,checkedNteach:props.isAll,checkedPta:props.isAll,
+    checkedManag:props.isAll,checkedNss:props.isAll,checkedNcc:props.isAll,checkedTrust:props.isAll,
     checkedDept:true,
-    checkedStud:false,
-    checkedBus:false,
+    checkedStud:props.isAll,
+    checkedBus:props.isAll,
   }
   this.handleClickHod=()=>{this.setState({checkedHod:!this.state.checkedHod})}
   this.handleClickTeach=()=>{this.setState({checkedTeach:!this.state.checkedTeach})}
@@ -35,25 +35,25 @@ constructor(props) {
   this.handleClickDept=()=>{
     this.setState({
       checkedDept:!this.state.checkedDept,
-      checkedStud:false,checkedBus:false,
+      // checkedStud:false,checkedBus:false,
     })
 
   }
   this.handleClickStud=()=>{
     this.setState({
       checkedStud:!this.state.checkedStud,
-      checkedDept:false,checkedBus:false,checked:false,
-      checkedHod:false,checkedTeach:false,checkedNteach:false,checkedPta:false,
-      checkedManag:false,checkedNss:false,checkedNcc:false,checkedTrust:false,
+      // checkedDept:false,checkedBus:false,checked:false,
+      // checkedHod:false,checkedTeach:false,checkedNteach:false,checkedPta:false,
+      // checkedManag:false,checkedNss:false,checkedNcc:false,checkedTrust:false,
         })
 
   }
   this.handleClickBus=()=>{
     this.setState({
       checkedBus:!this.state.checkedBus,
-      checkedStud:false,checkedDept:false,checked:false,
-      checkedHod:false,checkedTeach:false,checkedNteach:false,checkedPta:false,
-      checkedManag:false,checkedNss:false,checkedNcc:false,checkedTrust:false,
+      // checkedStud:false,checkedDept:false,checked:false,
+      // checkedHod:false,checkedTeach:false,checkedNteach:false,checkedPta:false,
+      // checkedManag:false,checkedNss:false,checkedNcc:false,checkedTrust:false,
     })
 
   }
@@ -89,35 +89,43 @@ constructor(props) {
               isChecked={false}
             leftText={x} leftTextStyle={{marginLeft:20}}/>
          )} */}
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center', backgroundColor:'#ecf0f1',justifyContent:'center'}} isChecked={this.state.checkedHod}
           leftText='HOD' leftTextStyle={{marginLeft:20}}
            onClick={this.handleClickHod}/>
-        <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+        <CheckBox checkBoxColor='#1B9CFC'
+          // disabled={!this.state.checkedDept}
           style={{flex:1,alignItems:'center', justifyContent:'center'}} isChecked={this.state.checkedTeach}
          leftText='Teaching' leftTextStyle={{marginLeft:20}}
           onClick={this.handleClickTeach}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
             style={{flex:1,alignItems:'center', backgroundColor:'#ecf0f1',justifyContent:'center'}} isChecked={this.state.checkedNteach}
           leftText='Non Teaching' leftTextStyle={{marginLeft:20}}
         onClick={this.handleClickNteach}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center', justifyContent:'center'}} isChecked={this.state.checkedPta}
           leftText='PTA' leftTextStyle={{marginLeft:20}}
         onClick={this.handleClickPta}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center', backgroundColor:'#ecf0f1',justifyContent:'center'}} isChecked={this.state.checkedManag}
             leftText='Management Committee' leftTextStyle={{marginLeft:20}}
           onClick={this.handleClickManag}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center', justifyContent:'center'}} isChecked={this.state.checkedNcc}
           leftText='NCC' leftTextStyle={{marginLeft:20}}
         onClick={this.handleClickNcc}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+            // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center',backgroundColor:'#ecf0f1', justifyContent:'center'}} isChecked={this.state.checkedNss}
           leftText='NSS' leftTextStyle={{marginLeft:20}}
         onClick={this.handleClickNss}/>
-         <CheckBox checkBoxColor='#1B9CFC' disabled={!this.state.checkedDept}
+         <CheckBox checkBoxColor='#1B9CFC'
+           // disabled={!this.state.checkedDept}
            style={{flex:1,alignItems:'center', justifyContent:'center'}} isChecked={this.state.checkedTrust}
           leftText='Trustees' leftTextStyle={{marginLeft:20}}
         onClick={this.handleClickTrust}/>
